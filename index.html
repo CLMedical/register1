@@ -59,18 +59,10 @@
                                                 <input type="text" class="form-control" name="UName" id="uname"
                                                     readonly>
                                                 <input id="uid" class="form-control" name="Uid" style="display:none;">
-                                                <img id="upic" name="Upic" width="25%">
+                                               <img id="upic" name="Upic" width="25%">
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="number1">เบอร์โทรติดต่อ</label>
-                                            <input type="tel" class="form-control" pattern="[0-9]{10}"
-                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                placeholder="ระบุเบอร์โทรศัพท์" id="tel" name="tel" maxlength="10"
-                                                minlength="10" required>
-                                            <!--<div class="valid-feedback">ผ่าน</div>-->
-                                            <!--<div class="invalid-feedback">กรุณาป้อนเบอร์โทรให้ครบ10หลัก</div> -->
-                                        </div>
+                                        
 
                                         <div class="form-group col-md-12">
                                             <label for="number1">ชื่อ</label>
@@ -81,10 +73,19 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="number4">นามสกุล</label>
-                                            <input type="text" class="form-control" placeholder="เลขที่4" id="number4"
+                                            <input type="text" class="form-control" placeholder="เลขที่2" id="number4"
                                                 name="number4" required>
                                             <!--<div class="valid-feedback">ผ่าน</div>-->
                                             <!--<div class="invalid-feedback">กรุณาป้อนข้อมูลให้ครบ</div>-->
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label for="number1">เบอร์โทรติดต่อ</label>
+                                            <input type="tel" class="form-control" pattern="[0-9]{10}"
+                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                placeholder="ระบุเบอร์โทรศัพท์" id="tel" name="tel" maxlength="10"
+                                                minlength="10" required>
+                                            <!--<div class="valid-feedback">ผ่าน</div>-->
+                                            <!--<div class="invalid-feedback">กรุณาป้อนเบอร์โทรให้ครบ10หลัก</div> -->
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="number2">วันนัด</label>
@@ -101,13 +102,13 @@
                                             <div class="invalid-feedback">กรุณาป้อนข้อมูลให้ครบ</div>
                                         </div>-->
                                         
-                                        <!--<div class="form-group col-md-12">
+                                        <div class="form-group col-md-12">
                                             <label for="number5">นัดเพื่อ</label>
                                             <input type="text" class="form-control" placeholder="เลขที่5" id="number5"
                                                 name="number5" required>
-                                            <div class="valid-feedback">ผ่าน</div>
-                                            <div class="invalid-feedback">กรุณาป้อนข้อมูลให้ครบ</div>
-                                        </div>-->
+                                            <!--<div class="valid-feedback">ผ่าน</div>-->
+                                            <!--<div class="invalid-feedback">กรุณาป้อนข้อมูลให้ครบ</div>-->
+                                        </div>
                                     </div>
                                     <div class="row"> </div>
                                     <div class="col"> </div>
