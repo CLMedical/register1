@@ -190,26 +190,54 @@
             const form = document.forms['google-sheet']
 
             form.addEventListener('submit', e => {
-            e.preventDefault()
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    if (response.ok) {
-                        // แสดง Sweet Alert แจ้งเตือน
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'ลงทะเบียนสำเร็จ!',
-                            text: 'ข้อมูลของคุณได้ถูกบันทึกแล้ว',
-                            confirmButtonText: 'ตกลง'
-                        }).then(() => {
-                            // รีเซ็ตฟอร์ม
-                            form.reset();
-                        });
-                    } else {
-                        throw new Error('Network response was not ok.');
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+    e.preventDefault();
+    
+    // แสดง SweetAlert ขณะกำลังส่งข้อมูล
+    Swal.fire({
+        title: 'กำลังส่งข้อมูล...',
+        text: 'กรุณารอสักครู่',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+            if (response.ok) {
+                // ปิด SweetAlert ที่กำลังแสดงอยู่
+                Swal.close();
+
+                // แสดง SweetAlert แจ้งเตือนเมื่อสำเร็จ
+                Swal.fire({
+                    icon: 'success',
+                    title: 'ลงทะเบียนสำเร็จ!',
+                    text: 'ข้อมูลของคุณได้ถูกบันทึกแล้ว',
+                    confirmButtonText: 'ตกลง'
+                }).then(() => {
+                    // รีเซ็ตฟอร์ม
+                    form.reset();
+                });
+            } else {
+                throw new Error('Network response was not ok.');
+            }
         })
+        .catch(error => {
+            console.error('Error:', error);
+
+            // ปิด SweetAlert ที่กำลังแสดงอยู่
+            Swal.close();
+
+            // แสดง SweetAlert แจ้งเตือนเมื่อเกิดข้อผิดพลาด
+            Swal.fire({
+                icon: 'error',
+                title: 'เกิดข้อผิดพลาด!',
+                text: 'ไม่สามารถบันทึกข้อมูลได้ กรุณาลองใหม่อีกครั้ง',
+                confirmButtonText: 'ตกลง'
+            });
+        });
+});
+
         </script>
 
         <script>
